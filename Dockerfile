@@ -2,28 +2,29 @@ FROM golang:1.12.12 AS builder
 
 ENV CGO_ENABLED 0
 ENV TARGET_DIR $GOPATH/src/github.com/nebula-chat/chatengine
+ENV GO111MODULE on
 
-RUN echo $GOPATH
-RUN mkdir -p $TARGET_DIR
+RUN echo "GOPATH: $GOPATH"
+RUN mkdir -pv $TARGET_DIR
 RUN cd $TARGET_DIR
 COPY . $TARGET_DIR/
 
 # build biz_server
-RUN cd ${TARGET_DIR}/messenger/biz_server && go build -ldflags='-s -w'
+RUN cd ${TARGET_DIR}/messenger/biz_server && go get && go build -ldflags='-s -w'
 # build document
-RUN cd ${TARGET_DIR}/service/document && go build -ldflags='-s -w'
+RUN cd ${TARGET_DIR}/service/document && go get && go build -ldflags='-s -w'
 # build auth_session
-RUN cd ${TARGET_DIR}/service/auth_session && go build -ldflags='-s -w'
+RUN cd ${TARGET_DIR}/service/auth_session && go get && go build -ldflags='-s -w'
 # build sync
-RUN cd ${TARGET_DIR}/messenger/sync && go build -ldflags='-s -w'
+RUN cd ${TARGET_DIR}/messenger/sync && go get && go build -ldflags='-s -w'
 # build upload
-RUN cd ${TARGET_DIR}/messenger/upload && go build -ldflags='-s -w'
+RUN cd ${TARGET_DIR}/messenger/upload && go get && go build -ldflags='-s -w'
 # build auth_key
-RUN cd ${TARGET_DIR}/access/auth_key && go build -ldflags='-s -w'
+RUN cd ${TARGET_DIR}/access/auth_key && go get && go build -ldflags='-s -w'
 # build session
-RUN cd ${TARGET_DIR}/access/session && go build -ldflags='-s -w'
+RUN cd ${TARGET_DIR}/access/session && go get && go build -ldflags='-s -w'
 # build frontend
-RUN cd ${TARGET_DIR}/access/frontend && go build -ldflags='-s -w'
+RUN cd ${TARGET_DIR}/access/frontend && go get && go build -ldflags='-s -w'
 
 
 

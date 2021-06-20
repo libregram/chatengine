@@ -1,7 +1,7 @@
 all: build run
 
 build:
-	docker build -t chatengine/server:latest .
+	docker build -t libregram/server -f Dockerfile .
 
 run:
 	docker-compose up -d

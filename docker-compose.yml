@@ -38,7 +38,7 @@ services:
       - ${PWD}/docker/redis/data:/data
     entrypoint: redis-server /etc/redis/redis.conf
   chatengine:
-    image: chatengine/server:latest
+    image: libregram/server:latest
     restart: always
     logging:
       options:
@@ -46,7 +46,7 @@ services:
         max-file: "5"
     environment:
       - TZ=Asia/Shanghai
-      # IMPORTANT: replace to your own host IP.
+      # IMPORTANT: replace with your own host IP.
       - CHATENGINE_HOST=127.0.0.1
       # options to reset etcd,redis,mysql
       # - ETCD_URL=http://etcd:2379

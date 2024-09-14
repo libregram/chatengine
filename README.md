@@ -4,7 +4,7 @@
 
 1. `sudo apt install docker docker-compose`
 2. `cd && mkdir -pv git && cd git && git clone https://github.com/libregram/chatengine.git libregram-server && cd libregram-server`
-3. Edit `docker-compose.yml`: replace the value of `CHATENGINE_HOST` with your own host IP (or leave `127.0.0.1` for local tests)
+3. `cp docker-compose.yml.example docker-compose.yml` and replace the value of `CHATENGINE_HOST` with your own host IP (or leave `127.0.0.1` for local tests)
 4. `make -j$(expr $(nproc) - 1)`
 5. Now, the mtproto server is running on CHATENGINE_HOST, port 12345.
 

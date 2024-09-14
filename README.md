@@ -1,5 +1,9 @@
 # libregram server (AKA nebula-chat's chatengine)
 
+## Project Status
+
+ * Work in progress. Something works, but not all. This needs to be described better.
+
 ## Docker Installation
 
 1. `sudo apt install docker docker-compose`

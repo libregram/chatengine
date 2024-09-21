@@ -55,7 +55,7 @@ func NewTcpClient(name string, chanSize int, protoName, address string, cb TcpCl
 		timeInterval:  30 * time.Second,
 	}
 
-	log.Info("NewTcpClient leave ", client)
+	glog.Info("NewTcpClient leave, returning client=", client)
 	return client
 }
 
@@ -68,10 +68,10 @@ func (c *TcpClient) GetRemoteAddress() string {
 }
 
 func (c *TcpClient) Serve() bool {
-	log.Info("TcpClient::Serve enter; start connect to ", c.remoteName, " address ", c.remoteAddress)
+	glog.Info("TcpClient::Serve enter; start connect to ", c.remoteName, " address ", c.remoteAddress)
 	tcpConn, err := net.DialTimeout("tcp", c.remoteAddress, 5*time.Second)
 	if err != nil {
-		log.Error(err.Error())
+		glog.Error(err.Error())
 		c.Reconnect()
 		return false
 	}

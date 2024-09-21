@@ -2,7 +2,7 @@ version: "3"
 
 services:
   etcd:
-    image: appcelerator/etcd:3.3.3
+    image: gcr.io/etcd-development/etcd:v3.3.3
     restart: always
     logging:
       options:

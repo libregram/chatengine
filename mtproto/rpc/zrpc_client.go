@@ -63,6 +63,7 @@ type ZRpcClient struct {
 // 所有的调用都使用"brpc"
 // All calls use "brpc"
 func NewZRpcClient(protoName string, conf *ZRpcClientConfig, cb ZPpcClientCallBack) *ZRpcClient {
+	glog.Info("NewZRpcClient enter")
 	clients := map[string][]string{}
 
 	c := &ZRpcClient{
@@ -75,6 +76,7 @@ func NewZRpcClient(protoName string, conf *ZRpcClientConfig, cb ZPpcClientCallBa
 
 	// Check name
 	for i := 0; i < len(conf.Clients); i++ {
+		glog.Info("i=", i, "etcd=", conf.Clients[i].EtcdAddrs, " name=", conf.Clients[i].Name, " balancer ", conf.Clients[i].Balancer)
 		// service discovery
 		etcdConfg := clientv3.Config{
 			Endpoints: conf.Clients[i].EtcdAddrs,
@@ -88,14 +90,15 @@ func NewZRpcClient(protoName string, conf *ZRpcClientConfig, cb ZPpcClientCallBa
 		// 之前这里的值在后面用的时候发现是空值
 		// The value here was found to be null when it was used later.
 		k := 0
-		for k <= 10 && watcher.watcher == nil {
-			fmt.Printf("There was a problem, error connecting to etcd, attempt %d of 10\n", k)
+		MAX_ATTEMPTS := 10
+		for k <= MAX_ATTEMPTS && watcher.watcher == nil {
+			glog.Info("There was a problem, error connecting to etcd, attempt ", k, " of ", MAX_ATTEMPTS)
 			time.Sleep(1 * time.Second)
 			watcher.watcher, _ = watcher2.NewClientWatcher("/nebulaim", conf.Clients[i].Name, etcdConfg, c.clients)
 			k = k + 1
 		}
-		if k >= 10 {
-			fmt.Println("etcd error in NewClientWatcher. Tried 10 times but still failed. Try restarting once")
+		if k >= MAX_ATTEMPTS {
+			glog.Error("etcd error in NewClientWatcher. Tried ", MAX_ATTEMPTS, " times but still failed. Try restarting once")
 		}
 
 		if conf.Clients[i].Balancer == "ketama" {

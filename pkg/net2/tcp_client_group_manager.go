@@ -36,6 +36,7 @@ type TcpClientGroupManager struct {
 }
 
 func NewTcpClientGroupManager(protoName string, clients map[string][]string, cb TcpClientCallBack) *TcpClientGroupManager {
+	glog.Info("NewTcpClientGroupManager enter")
 	group := &TcpClientGroupManager{
 		protoName: protoName,
 		clientMap: make(map[string]map[string]*TcpClient),
@@ -53,6 +54,7 @@ func NewTcpClientGroupManager(protoName string, clients map[string][]string, cb 
 		}
 
 		group.clientMapLock.Lock()
+		glog.Info("new TcpClientGroupManager: clientMap[", k, "] = ", v)
 		group.clientMap[k] = m
 		group.clientMapLock.Unlock()
 	}
@@ -139,7 +141,7 @@ func (cgm *TcpClientGroupManager) SendDataToAddress(name, address string, msg in
 	if !ok {
 		cgm.clientMapLock.RUnlock()
 		err := fmt.Errorf("sendDataToAddress - name not exists: %s", name)
-		// glog.Error(err)
+		glog.Error(err)
 		return err
 	}
 
@@ -147,13 +149,13 @@ func (cgm *TcpClientGroupManager) SendDataToAddress(name, address string, msg in
 	if !ok {
 		cgm.clientMapLock.RUnlock()
 		err := fmt.Errorf("sendDataToAddress - address not exists: %s", address)
-		// glog.Error(err)
+		glog.Error(err)
 		return err
 	}
 
 	cgm.clientMapLock.RUnlock()
 
-	// glog.Infof("tcp_client_group_manager sendDataToAddress: {name: %s, conn: %s, msg: {%v}}", name, c, msg)
+	glog.Infof("tcp_client_group_manager sendDataToAddress: name: %s, conn: %s, msg: {%v}", name, c, msg)
 	return c.Send(msg)
 }
 

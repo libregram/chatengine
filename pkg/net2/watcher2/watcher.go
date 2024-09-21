@@ -73,7 +73,7 @@ func (m *ClientWatcher) WatchClients(cb func(etype, addr string)) {
 
 	rootPath := fmt.Sprintf("%s/%s", m.registryDir, m.serviceName)
 
-	glog.Info("calling m.etcCli.Get")
+	glog.Info("calling m.etcCli.Get: m.etcCli ", m.etcCli, " context.Background() ", context.Background(), " rootPath ", rootPath, " WithPrefix")
 	resp, err := m.etcCli.Get(context.Background(), rootPath, clientv3.WithPrefix())
 	glog.Info("called m.etcCli.Get: resp ", resp, " err ", err)
 	if err != nil {

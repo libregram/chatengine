@@ -22,14 +22,14 @@ import (
 	"math/rand"
 	"time"
 
-	"go.etcd.io/etcd/clientv3"
+	"github.com/gogo/protobuf/proto"
 	"github.com/golang/glog"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto/rpc/brpc"
 	"github.com/libregram/chatengine/pkg/grpc_util/load_balancer"
 	"github.com/libregram/chatengine/pkg/net2"
 	"github.com/libregram/chatengine/pkg/net2/watcher2"
-	"github.com/libregram/chatengine/mtproto/rpc/brpc"
-	"github.com/gogo/protobuf/proto"
-	"github.com/libregram/chatengine/mtproto"
+	"go.etcd.io/etcd/clientv3"
 )
 
 func init() {
@@ -61,16 +61,18 @@ type ZRpcClient struct {
 }
 
 // 所有的调用都使用"brpc"
+// All calls use "brpc"
 func NewZRpcClient(protoName string, conf *ZRpcClientConfig, cb ZPpcClientCallBack) *ZRpcClient {
 	clients := map[string][]string{}
- 
+
 	c := &ZRpcClient{
 		callback: cb,
 	}
- 
+
 	// 这里传进去一个空值，应该后面在watcher中addclient中添加到cgm中
+	// A null value is passed in here, which should be added to cgm in addclient in watcher later
 	c.clients = net2.NewTcpClientGroupManager(protoName, clients, c)
- 
+
 	// Check name
 	for i := 0; i < len(conf.Clients); i++ {
 		// service discovery
@@ -81,20 +83,21 @@ func NewZRpcClient(protoName string, conf *ZRpcClientConfig, cb ZPpcClientCallBa
 			name: conf.Clients[i].Name,
 		}
 		// 这里的意思是本地的变量watcher里的 *watcher2.ClientWatcher类型watcher，
+		// Here it means the watcher of type *watcher2.ClientWatcher in the local variable watcher.
 		watcher.watcher, _ = watcher2.NewClientWatcher("/nebulaim", conf.Clients[i].Name, etcdConfg, c.clients)
 		// 之前这里的值在后面用的时候发现是空值
+		// The value here was found to be null when it was used later.
 		k := 0
-		for ; k <= 10 && watcher.watcher == nil;  {
-			fmt.Printf("出现了问题，连接etcd错误, 重试第 %d 次 \n", k+2)
+		for k <= 10 && watcher.watcher == nil {
+			fmt.Printf("There was a problem, error connecting to etcd, attempt %d of 10\n", k)
 			time.Sleep(1 * time.Second)
 			watcher.watcher, _ = watcher2.NewClientWatcher("/nebulaim", conf.Clients[i].Name, etcdConfg, c.clients)
 			k = k + 1
 		}
 		if k >= 10 {
-			fmt.Println("NewClientWatcher中etcd错误，试了10次还不行，重启一次试试")
+			fmt.Println("etcd error in NewClientWatcher. Tried 10 times but still failed. Try restarting once")
 		}
- 
- 
+
 		if conf.Clients[i].Balancer == "ketama" {
 			watcher.ketama = load_balancer.NewKetama(10, nil)
 		} else {
@@ -102,11 +105,11 @@ func NewZRpcClient(protoName string, conf *ZRpcClientConfig, cb ZPpcClientCallBa
 		}
 		c.watchers = append(c.watchers, watcher)
 	}
- 
+
 	return c
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////
 func (c *ZRpcClient) Serve() {
 	for _, w := range c.watchers {
 		if w.ketama != nil {
@@ -163,8 +166,12 @@ func (c *ZRpcClient) SendKetamaMessage(name, key string, cntl *ZRpcController, m
 }
 
 func (c *ZRpcClient) SendMessage(name string, cntl *ZRpcController, msg proto.Message) error {
+	glog.Info("ZRpcClient::SendMessage enter")
 	bmsg := MakeBaiduRpcMessage(cntl, msg)
-	return c.clients.SendData(name, bmsg)
+	glog.Info("ZRpcClient::SendMessage sending")
+	res := c.clients.SendData(name, bmsg)
+	glog.Info("ZRpcClient::SendMessage leave")
+	return res
 }
 
 func (c *ZRpcClient) SendMessageToAddress(name, addr string, cntl *ZRpcController, msg proto.Message) error {
@@ -172,9 +179,9 @@ func (c *ZRpcClient) SendMessageToAddress(name, addr string, cntl *ZRpcControlle
 	return c.clients.SendDataToAddress(name, addr, bmsg)
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////
 func (c *ZRpcClient) OnNewClient(client *net2.TcpClient) {
-	// glog.Info("onNewClient - client: ", client, ", conn: ", client.GetConnection())
+	glog.Info("onNewClient - client: ", client, ", conn: ", client.GetConnection())
 
 	codec := client.GetConnection().Codec()
 	glog.Info("codec: ", codec)
@@ -250,7 +257,7 @@ func (c *ZRpcClient) SendPing(client *net2.TcpClient) {
 	SendMessageByClient(client, cntl, ping)
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////
 func SendMessageByClient(client *net2.TcpClient, cntl *ZRpcController, msg proto.Message) error {
 	bmsg := MakeBaiduRpcMessage(cntl, msg)
 	glog.Info(bmsg)

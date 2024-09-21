@@ -138,7 +138,7 @@ func (s *frontendServer) OnServerNewConnection(conn *net2.TcpConnection) {
 		}},
 	}
 
-	glog.Infof("onServerNewConnection - {peer: %s, ctx: {%v}}", conn, conn.Context)
+	glog.Infof("onServerNewConnection - peer: %s, ctx: %v", conn, conn.Context)
 }
 
 func (s *frontendServer) OnServerMessageDataArrived(conn *net2.TcpConnection, msg *mtproto.MTPRawMessage) error {
@@ -298,7 +298,7 @@ func (s *frontendServer) getConnBySessionID(id uint64) *net2.TcpConnection {
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////
 func (s *frontendServer) onServerUnencryptedRawMessage(ctx *connContext, conn *net2.TcpConnection, mmsg *mtproto.MTPRawMessage) error {
-	glog.Infof("onServerUnencryptedRawMessage - receive data: {peer: %s, ctx.state: %d, ctx.handshakeState.GetState(): %d, msg: %s}", conn,
+	glog.Infof("onServerUnencryptedRawMessage - receive data: peer: %s, ctx.state: %d, ctx.handshakeState: %d, msg: %s", conn,
 		ctx.state, ctx.handshakeState.GetState(), mmsg)
 
 	zmsg := mtproto.NewTLHandshakeData()

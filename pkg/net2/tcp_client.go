@@ -19,10 +19,11 @@ package net2
 
 import (
 	"errors"
-	"github.com/golang/glog"
 	"net"
 	"runtime/debug"
 	"time"
+
+	"github.com/golang/glog"
 )
 
 type TcpClientCallBack interface {
@@ -54,7 +55,7 @@ func NewTcpClient(name string, chanSize int, protoName, address string, cb TcpCl
 		timeInterval:  30 * time.Second,
 	}
 
-	// log.Info("NewTcpClient complete ", client)
+	log.Info("NewTcpClient leave ", client)
 	return client
 }
 
@@ -67,10 +68,10 @@ func (c *TcpClient) GetRemoteAddress() string {
 }
 
 func (c *TcpClient) Serve() bool {
-	// log.Info("Start Connect to ", c.remoteName, " address ", c.remoteAddress)
+	log.Info("TcpClient::Serve enter; start connect to ", c.remoteName, " address ", c.remoteAddress)
 	tcpConn, err := net.DialTimeout("tcp", c.remoteAddress, 5*time.Second)
 	if err != nil {
-		// log.Error(err.Error())
+		log.Error(err.Error())
 		c.Reconnect()
 		return false
 	}
@@ -82,7 +83,7 @@ func (c *TcpClient) Serve() bool {
 }
 
 func (c *TcpClient) establishTcpConnection(conn *TcpConnection) {
-	// glog.Info("establishTcpConnection...")
+	glog.Info("TcpClient::establishTcpConnection enter")
 	defer func() {
 		if err := recover(); err != nil {
 			glog.Errorf("tcp_client handle panic: %v\n%s", err, debug.Stack())

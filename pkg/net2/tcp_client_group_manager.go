@@ -57,7 +57,7 @@ func NewTcpClientGroupManager(protoName string, clients map[string][]string, cb 
 		group.clientMapLock.Unlock()
 	}
 
-	// glog.Info("NewTcpClientGroup group : ", group.clientMap)
+	glog.Info("NewTcpClientGroupManager new group : ", group.clientMap)
 	return group
 }
 
@@ -92,7 +92,7 @@ func (cgm *TcpClientGroupManager) GetConfig() interface{} {
 }
 
 func (cgm *TcpClientGroupManager) AddClient(name string, address string) {
-	// glog.Info("TcpClientGroup AddClient name ", name, " address ", address)
+	glog.Info("TcpClientGroupManager::AddClient enter: name=", name, ", address=", address)
 	cgm.clientMapLock.Lock()
 	defer cgm.clientMapLock.Unlock()
 
@@ -109,10 +109,11 @@ func (cgm *TcpClientGroupManager) AddClient(name string, address string) {
 	client := NewTcpClient(name, 10*1024, cgm.protoName, address, cgm.callback)
 	m[address] = client
 	client.Serve()
+	glog.Info("TcpClientGroupManager::AddClient leave: name=", name, ", address=", address, ", client=", client)
 }
 
 func (cgm *TcpClientGroupManager) RemoveClient(name string, address string) {
-	// glog.Info("TcpClientGroup RemoveClient name ", name, " address ", address)
+	glog.Info("TcpClientGroupManager::RemoveClient enter name ", name, " address ", address)
 	cgm.clientMapLock.Lock()
 	defer cgm.clientMapLock.Unlock()
 
@@ -129,6 +130,7 @@ func (cgm *TcpClientGroupManager) RemoveClient(name string, address string) {
 
 	c.Stop()
 	delete(cgm.clientMap[name], address)
+	glog.Info("TcpClientGroupManager::RemoveClient leave name ", name, " address ", address)
 }
 
 func (cgm *TcpClientGroupManager) SendDataToAddress(name, address string, msg interface{}) error {
@@ -156,22 +158,30 @@ func (cgm *TcpClientGroupManager) SendDataToAddress(name, address string, msg in
 }
 
 func (cgm *TcpClientGroupManager) SendData(name string, msg interface{}) error {
+	glog.Info("TcpClientGroupManager::SendData enter")
 	tcpConn := cgm.getRotationSession(name)
 	if tcpConn == nil {
-		return errors.New("can not get tcp connection")
+		glog.Info("TcpClientGroupManager::SendData cannot get tcp connection")
+		return errors.New("cannot get tcp connection")
 	}
-	glog.Info("tcp_client_group_manager SendData: {name: %s, conn: %s, msg: {%v}}", name, tcpConn, msg)
-	return tcpConn.Send(msg)
+	glog.Info("TcpClientGroupManager::SendData: name: %s, conn: %s, msg: {%v}", name, tcpConn, msg)
+	res := tcpConn.Send(msg)
+	glog.Info("TcpClientGroupManager::SendData leave, result of tcp send: %s", res)
+	return res
 }
 
 func (cgm *TcpClientGroupManager) getRotationSession(name string) *TcpConnection {
+	glog.Info("TcpClientGroupManager::getRotationSession enter, name: ", name)
 	allConns := cgm.getTcpClientsByName(name)
 	if allConns == nil || len(allConns) == 0 {
+		glog.Info("TcpClientGroupManager::getRotationSession cgm.getTcpClientsByName returned nil")
 		return nil
 	}
 
 	index := rand.Int() % len(allConns)
-	return allConns[index]
+	res := allConns[index]
+	glog.Info("TcpClientGroupManager::getRotationSession leave result=%s", res)
+	return res
 }
 
 func (cgm *TcpClientGroupManager) BroadcastData(name string, msg interface{}) error {
@@ -189,6 +199,7 @@ func (cgm *TcpClientGroupManager) BroadcastData(name string, msg interface{}) er
 }
 
 func (cgm *TcpClientGroupManager) getTcpClientsByName(name string) []*TcpConnection {
+	glog.Info("TcpClientGroupManager::getTcpClientsByName enter, name: ", name)
 	var allConns []*TcpConnection
 
 	cgm.clientMapLock.RLock()
@@ -196,6 +207,7 @@ func (cgm *TcpClientGroupManager) getTcpClientsByName(name string) []*TcpConnect
 	serviceMap, ok := cgm.clientMap[name]
 
 	if !ok {
+		glog.Info("TcpClientGroupManager::getTcpClientsByName !ok, returning nil")
 		cgm.clientMapLock.RUnlock()
 		return nil
 	}
@@ -208,5 +220,6 @@ func (cgm *TcpClientGroupManager) getTcpClientsByName(name string) []*TcpConnect
 
 	cgm.clientMapLock.RUnlock()
 
+	glog.Info("TcpClientGroupManager::getTcpClientsByName ok, returning %s", allConns)
 	return allConns
 }

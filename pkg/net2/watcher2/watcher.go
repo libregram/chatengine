@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"go.etcd.io/etcd/mvcc/mvccpb"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/net2"
+	"github.com/libregram/chatengine/pkg/net2"
 )
 
 // see: /baselib/grpc_util/service_discovery/registry.go

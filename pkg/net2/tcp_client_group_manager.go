@@ -20,9 +20,12 @@ package net2
 import (
 	"errors"
 	"fmt"
+
 	// "github.com/golang/glog"
 	"math/rand"
 	"sync"
+
+	"github.com/golang/glog"
 )
 
 type TcpClientGroupManager struct {
@@ -155,9 +158,9 @@ func (cgm *TcpClientGroupManager) SendDataToAddress(name, address string, msg in
 func (cgm *TcpClientGroupManager) SendData(name string, msg interface{}) error {
 	tcpConn := cgm.getRotationSession(name)
 	if tcpConn == nil {
-		return errors.New("can not get connection")
+		return errors.New("can not get tcp connection")
 	}
-	// glog.Info("tcp_client_group_manager SendData: {name: %s, conn: %s, msg: {%v}}", name, tcpConn, msg)
+	glog.Info("tcp_client_group_manager SendData: {name: %s, conn: %s, msg: {%v}}", name, tcpConn, msg)
 	return tcpConn.Send(msg)
 }
 

@@ -18,7 +18,7 @@
 package rpc
 
 import (
-	"github.com/nebula-chat/chatengine/service/auth_session/biz/core"
+	"github.com/libregram/chatengine/service/auth_session/biz/core"
 )
 
 type SessionServiceImpl struct {

@@ -22,12 +22,12 @@ import (
 	"time"
 
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/base"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dataobject"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/pkg/random2"
-	base2 "github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/base"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dataobject"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/random2"
+	base2 "github.com/libregram/chatengine/pkg/util"
 )
 
 const (

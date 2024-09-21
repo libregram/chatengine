@@ -13,10 +13,10 @@ docker start redis-docker mysql-docker etcd-docker
 
 sleep 10
 docker exec -it mysql-docker sh -c 'exec mysql -u root -p -e"CREATE DATABASE chatengine;"' 
-docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/nebula-chat/chatengine/scripts/chatengine.sql
-docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/nebula-chat/chatengine/scripts/chatengine-fix.sql
-docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/nebula-chat/chatengine/scripts/merge-20181129.sql
-docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/nebula-chat/chatengine/scripts/merge-20181214.sql
-docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/nebula-chat/chatengine/scripts/merge-20181220.sql
-docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/nebula-chat/chatengine/scripts/merge-20190619.sql
-docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/nebula-chat/chatengine/scripts/merge-react.sql
+docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/libregram/chatengine/scripts/chatengine.sql
+docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/libregram/chatengine/scripts/chatengine-fix.sql
+docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/libregram/chatengine/scripts/merge-20181129.sql
+docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/libregram/chatengine/scripts/merge-20181214.sql
+docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/libregram/chatengine/scripts/merge-20181220.sql
+docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/libregram/chatengine/scripts/merge-20190619.sql
+docker exec -i mysql-docker mysql --user=root chatengine < /home/anhttn/go/src/github.com/libregram/chatengine/scripts/merge-react.sql

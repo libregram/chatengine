@@ -18,10 +18,10 @@
 package core
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/base"
-	"github.com/nebula-chat/chatengine/mtproto"
-	base2 "github.com/nebula-chat/chatengine/pkg/util"
-	idgen "github.com/nebula-chat/chatengine/service/idgen/client"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/base"
+	"github.com/libregram/chatengine/mtproto"
+	base2 "github.com/libregram/chatengine/pkg/util"
+	idgen "github.com/libregram/chatengine/service/idgen/client"
 )
 
 const (

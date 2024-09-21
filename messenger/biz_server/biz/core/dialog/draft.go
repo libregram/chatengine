@@ -19,7 +19,7 @@ package dialog
 
 import (
 	"encoding/json"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto"
 )
 
 func (m *DialogModel) SaveDraftMessage(userId int32, peerType int32, peerId int32, message *mtproto.DraftMessage) {

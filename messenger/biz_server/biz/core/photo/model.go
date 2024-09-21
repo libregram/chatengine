@@ -18,9 +18,9 @@
 package photo
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/service/document/client"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/service/document/client"
 	"time"
 )
 

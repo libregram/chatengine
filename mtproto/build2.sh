@@ -1,5 +1,5 @@
 #!/bin/sh
-SRC_DIR=/home/anhttn/go/src/github.com/nebula-chat/chatengine/mtproto/
+SRC_DIR=/home/anhttn/go/src/github.com/libregram/chatengine/mtproto/
 DST_DIR=/home/anhttn/Desktop/mtproto/
 
 #./codegen.sh

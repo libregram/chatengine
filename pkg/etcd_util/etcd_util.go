@@ -19,8 +19,8 @@ package etcd_util
 
 import (
 	"go.etcd.io/etcd/clientv3"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/service_discovery"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/service_discovery/etcd3"
+	"github.com/libregram/chatengine/pkg/grpc_util/service_discovery"
+	"github.com/libregram/chatengine/pkg/grpc_util/service_discovery/etcd3"
 	"time"
 )
 

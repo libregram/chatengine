@@ -18,9 +18,9 @@
 package account
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dataobject"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dataobject"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/util"
 	"encoding/base64"
 )
 

@@ -20,7 +20,7 @@ package dao
 import (
 	"github.com/golang/glog"
 	"github.com/jmoiron/sqlx"
-	"github.com/nebula-chat/chatengine/service/auth_session/biz/dal/dao/mysql_dao"
+	"github.com/libregram/chatengine/service/auth_session/biz/dal/dao/mysql_dao"
 	"sync"
 )
 

@@ -19,12 +19,12 @@ package messages
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/base"
-	message2 "github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/message"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/logger"
-	"github.com/nebula-chat/chatengine/service/document/client"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/base"
+	message2 "github.com/libregram/chatengine/messenger/biz_server/biz/core/message"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/service/document/client"
 	"golang.org/x/net/context"
 	"time"
 )

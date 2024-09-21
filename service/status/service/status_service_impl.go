@@ -21,8 +21,8 @@ import (
 	"container/list"
 	"context"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/logger"
-	"github.com/nebula-chat/chatengine/service/status/proto"
+	"github.com/libregram/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/service/status/proto"
 )
 
 type statusServiceImpl struct {

@@ -18,12 +18,12 @@
 package channels
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/channel"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/dialog"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/message"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/user"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/username"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/channel"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/dialog"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/message"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/user"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/username"
 )
 
 type ChannelsServiceImpl struct {

@@ -23,7 +23,7 @@ import (
 	"encoding/pem"
 	"math/big"
 	"io/ioutil"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/util"
 )
 
 type RSACryptor struct {

@@ -20,10 +20,10 @@ package account
 import (
     "github.com/golang/glog"
     "golang.org/x/net/context"
-    "github.com/nebula-chat/chatengine/pkg/grpc_util"
-    "github.com/nebula-chat/chatengine/pkg/logger"
-    "github.com/nebula-chat/chatengine/mtproto"
-    "github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
+    "github.com/libregram/chatengine/pkg/grpc_util"
+    "github.com/libregram/chatengine/pkg/logger"
+    "github.com/libregram/chatengine/mtproto"
+    "github.com/libregram/chatengine/messenger/biz_server/biz/core"
 )
 
 // account.unregisterDevice#65c55b40 token_type:int token:string = Bool;

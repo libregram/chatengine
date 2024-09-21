@@ -19,10 +19,10 @@ package rpc
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/mtproto"
-	zrpc "github.com/nebula-chat/chatengine/mtproto/rpc"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/mtproto"
+	zrpc "github.com/libregram/chatengine/mtproto/rpc"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/logger"
 	"golang.org/x/net/context"
 )
 

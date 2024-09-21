@@ -24,12 +24,12 @@ import (
 
 	"go.etcd.io/etcd/clientv3"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/load_balancer"
-	"github.com/nebula-chat/chatengine/pkg/net2"
-	"github.com/nebula-chat/chatengine/pkg/net2/watcher2"
-	"github.com/nebula-chat/chatengine/mtproto/rpc/brpc"
+	"github.com/libregram/chatengine/pkg/grpc_util/load_balancer"
+	"github.com/libregram/chatengine/pkg/net2"
+	"github.com/libregram/chatengine/pkg/net2/watcher2"
+	"github.com/libregram/chatengine/mtproto/rpc/brpc"
 	"github.com/gogo/protobuf/proto"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto"
 )
 
 func init() {

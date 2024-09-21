@@ -21,7 +21,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto"
 )
 
 //

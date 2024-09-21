@@ -18,9 +18,9 @@
 package server
 
 import (
-	"github.com/nebula-chat/chatengine/pkg/util"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/mtproto/rpc"
+	"github.com/libregram/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/mtproto/rpc"
 	"github.com/gogo/protobuf/proto"
 	"github.com/golang/glog"
 )

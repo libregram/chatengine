@@ -18,8 +18,8 @@
 package mysql_dao
 
 import(
-	"github.com/nebula-chat/chatengine/mtproto"
-    "github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dataobject"
+	"github.com/libregram/chatengine/mtproto"
+    "github.com/libregram/chatengine/messenger/biz_server/biz/dal/dataobject"
 	"github.com/jmoiron/sqlx"
 	"github.com/golang/glog"
 	"fmt"

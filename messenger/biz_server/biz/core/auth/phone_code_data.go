@@ -20,10 +20,10 @@ package auth
 import (
 	"fmt"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dataobject"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/pkg/crypto"
-	"github.com/nebula-chat/chatengine/pkg/random2"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dataobject"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/crypto"
+	"github.com/libregram/chatengine/pkg/random2"
 	"time"
 )
 

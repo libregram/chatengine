@@ -6,7 +6,7 @@
 
 # docker start mysql-docker redis-docker etcd-docker
 
-chatengine="$GOPATH/src/github.com/nebula-chat/chatengine"
+chatengine="$GOPATH/src/github.com/libregram/chatengine"
 
 echo "build document ..."
 cd ${chatengine}/service/document

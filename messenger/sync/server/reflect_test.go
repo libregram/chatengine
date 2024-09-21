@@ -20,7 +20,7 @@ package server
 import (
 	"fmt"
 	"github.com/gogo/protobuf/proto"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto"
 	"testing"
 )
 

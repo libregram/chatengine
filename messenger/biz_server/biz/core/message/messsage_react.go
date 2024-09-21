@@ -2,7 +2,7 @@ package message
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dataobject"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dataobject"
 	"time"
 )
 

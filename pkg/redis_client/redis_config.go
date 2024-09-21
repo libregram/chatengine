@@ -19,7 +19,7 @@ package redis_client
 
 import (
 	"fmt"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/util"
 )
 
 // Redis client config.

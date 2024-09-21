@@ -19,12 +19,12 @@ package contacts
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/logger"
-	"github.com/nebula-chat/chatengine/mtproto"
-	updates2 "github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/update"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/mtproto"
+	updates2 "github.com/libregram/chatengine/messenger/biz_server/biz/core/update"
 	"golang.org/x/net/context"
-	"github.com/nebula-chat/chatengine/messenger/sync/sync_client"
+	"github.com/libregram/chatengine/messenger/sync/sync_client"
 )
 
 // contacts.unblock#e54100bd id:InputUser = Bool;

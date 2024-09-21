@@ -17,7 +17,7 @@
 
 package message
 
-import "github.com/nebula-chat/chatengine/mtproto"
+import "github.com/libregram/chatengine/mtproto"
 
 func (m *MessageModel) GetChannelMessage(userId, channelId, id int32) (message *mtproto.Message) {
 	do := m.dao.ChannelMessagesDAO.SelectByMessageId(channelId, id)

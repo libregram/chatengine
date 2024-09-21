@@ -19,10 +19,10 @@ package server
 
 import (
 	"fmt"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/net2"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/mtproto/rpc"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/net2"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto/rpc"
 	"time"
 	"github.com/gogo/protobuf/proto"
 	"github.com/golang/glog"

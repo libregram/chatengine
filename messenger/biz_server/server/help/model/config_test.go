@@ -20,8 +20,8 @@ package model
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/nebula-chat/chatengine/pkg/logger"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/mtproto"
 	"io/ioutil"
 	"testing"
 )

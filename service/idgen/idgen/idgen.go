@@ -19,8 +19,8 @@ package main
 
 import (
 	"flag"
-	"github.com/nebula-chat/chatengine/pkg/util"
-	"github.com/nebula-chat/chatengine/service/idgen/idgen/service"
+	"github.com/libregram/chatengine/pkg/util"
+	"github.com/libregram/chatengine/service/idgen/idgen/service"
 )
 
 func main() {

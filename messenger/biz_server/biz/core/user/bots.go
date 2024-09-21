@@ -17,7 +17,7 @@
 
 package user
 
-import "github.com/nebula-chat/chatengine/mtproto"
+import "github.com/libregram/chatengine/mtproto"
 
 func (m *UserModel) GetBotInfo(botId int32) *mtproto.BotInfo {
 	botsDO := m.dao.BotsDAO.Select(botId)

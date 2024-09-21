@@ -20,7 +20,7 @@ package grpc_recovery2
 import (
 	"context"
 	"fmt"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/middleware/examples/zproto"
+	"github.com/libregram/chatengine/pkg/grpc_util/middleware/examples/zproto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

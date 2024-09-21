@@ -22,10 +22,10 @@ import (
 	"errors"
 	"fmt"
 	"go.etcd.io/etcd/clientv3"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/util"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/logger"
-	"github.com/nebula-chat/chatengine/service/idgen/proto"
+	"github.com/libregram/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/service/idgen/proto"
 	"math/rand"
 	"time"
 )

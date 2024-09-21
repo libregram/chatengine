@@ -18,9 +18,9 @@
 package sticker
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dao"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dao/mysql_dao"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dao"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dao/mysql_dao"
 )
 
 type stickersDAO struct {

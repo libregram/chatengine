@@ -19,8 +19,8 @@ package service
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/service/idgen/proto"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/service/idgen/proto"
 	"google.golang.org/grpc"
 	"log"
 )

@@ -24,11 +24,11 @@ import (
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/mtproto"
-	zrpc "github.com/nebula-chat/chatengine/mtproto/rpc"
-	"github.com/nebula-chat/chatengine/pkg/net2"
-	"github.com/nebula-chat/chatengine/pkg/util"
-	idgen "github.com/nebula-chat/chatengine/service/idgen/client"
+	"github.com/libregram/chatengine/mtproto"
+	zrpc "github.com/libregram/chatengine/mtproto/rpc"
+	"github.com/libregram/chatengine/pkg/net2"
+	"github.com/libregram/chatengine/pkg/util"
+	idgen "github.com/libregram/chatengine/service/idgen/client"
 )
 
 func init() {

@@ -19,11 +19,11 @@ package channels
 
 import (
 	"github.com/golang/glog"
-	updates "github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/update"
-	"github.com/nebula-chat/chatengine/messenger/sync/sync_client"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/logger"
+	updates "github.com/libregram/chatengine/messenger/biz_server/biz/core/update"
+	"github.com/libregram/chatengine/messenger/sync/sync_client"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/logger"
 	"golang.org/x/net/context"
 )
 

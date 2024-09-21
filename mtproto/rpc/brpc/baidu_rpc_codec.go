@@ -18,7 +18,7 @@
 package brpc
 
 import (
-	"github.com/nebula-chat/chatengine/pkg/net2"
+	"github.com/libregram/chatengine/pkg/net2"
 	"io"
 	"encoding/binary"
 	"net"
@@ -26,7 +26,7 @@ import (
 	"github.com/golang/glog"
 	"fmt"
 	"github.com/gogo/protobuf/proto"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/util"
 )
 
 func init() {

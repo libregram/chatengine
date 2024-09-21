@@ -23,11 +23,11 @@ import (
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/messenger/sync/biz/core/update"
-	"github.com/nebula-chat/chatengine/mtproto"
-	zrpc "github.com/nebula-chat/chatengine/mtproto/rpc"
-	status_client "github.com/nebula-chat/chatengine/service/status/client"
-	status "github.com/nebula-chat/chatengine/service/status/proto"
+	"github.com/libregram/chatengine/messenger/sync/biz/core/update"
+	"github.com/libregram/chatengine/mtproto"
+	zrpc "github.com/libregram/chatengine/mtproto/rpc"
+	status_client "github.com/libregram/chatengine/service/status/client"
+	status "github.com/libregram/chatengine/service/status/proto"
 )
 
 /*

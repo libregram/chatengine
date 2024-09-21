@@ -18,7 +18,7 @@ services:
         max-size: "50M"
         max-file: "5"
     volumes:
-      - ${PWD}/docker/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+      - ${PWD}/docker/mysql/:/etc/mysql/conf.d/
       - ${PWD}/docker/mysql/init-sql:/docker-entrypoint-initdb.d
       - ${PWD}/docker/mysql/data:/var/lib/mysql
     environment:

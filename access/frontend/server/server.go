@@ -19,15 +19,16 @@ package server
 
 import (
 	"fmt"
-	"github.com/nebula-chat/chatengine/pkg/util"
-	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/net2"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/mtproto/rpc"
-	"github.com/nebula-chat/chatengine/service/idgen/client"
 	"sync"
-	"github.com/gogo/protobuf/proto"
 	"time"
+
+	"github.com/gogo/protobuf/proto"
+	"github.com/golang/glog"
+	"github.com/nebula-chat/chatengine/mtproto"
+	zrpc "github.com/nebula-chat/chatengine/mtproto/rpc"
+	"github.com/nebula-chat/chatengine/pkg/net2"
+	"github.com/nebula-chat/chatengine/pkg/util"
+	idgen "github.com/nebula-chat/chatengine/service/idgen/client"
 )
 
 func init() {
@@ -88,7 +89,7 @@ func NewFrontendServer() *frontendServer {
 	return &frontendServer{}
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////////////////////
 // AppInstance interface
 func (s *frontendServer) Initialize() error {
 	err := InitializeConfig()
@@ -125,7 +126,7 @@ func (s *frontendServer) Destroy() {
 	s.client.Stop()
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////////////////////
 // MTProtoServerCallback
 func (s *frontendServer) OnServerNewConnection(conn *net2.TcpConnection) {
 	conn.Context = &connContext{
@@ -177,15 +178,14 @@ func (s *frontendServer) OnServerConnectionClosed(conn *net2.TcpConnection) {
 	s.sendClientClosed(conn)
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////////////////////
 // ZProtoClientCallBack
 func (s *frontendServer) OnNewClient(client *net2.TcpClient) {
 	glog.Infof("onNewClient - peer(%s)", client.GetConnection())
 }
 
-
 func (s *frontendServer) OnClientMessageArrived(client *net2.TcpClient, cntl *zrpc.ZRpcController, msg proto.Message) error {
-//func (s *frontendServer) OnClientMessageArrived(client *net2.TcpClient, md *zproto.ZProtoMetadata, sessionId, messageId uint64, seqNo uint32, msg zproto.MessageBase) error {
+	//func (s *frontendServer) OnClientMessageArrived(client *net2.TcpClient, md *zproto.ZProtoMetadata, sessionId, messageId uint64, seqNo uint32, msg zproto.MessageBase) error {
 	var err error
 
 	switch msg.(type) {
@@ -218,7 +218,7 @@ func (s *frontendServer) OnClientTimer(client *net2.TcpClient) {
 	glog.Info("onClientTimer")
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////////////////////
 func (s *frontendServer) onClientHandshakeMessage(client *net2.TcpClient, cntl *zrpc.ZRpcController, handshake *mtproto.TLHandshakeData) error {
 	glog.Infof("onClientHandshakeMessage - handshake: peer(%s), state: {%v}",
 		client.GetConnection(),
@@ -296,9 +296,10 @@ func (s *frontendServer) getConnBySessionID(id uint64) *net2.TcpConnection {
 	return server.GetConnection(id)
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////////////////////
 func (s *frontendServer) onServerUnencryptedRawMessage(ctx *connContext, conn *net2.TcpConnection, mmsg *mtproto.MTPRawMessage) error {
-	glog.Infof("onServerUnencryptedRawMessage - receive data: {peer: %s, ctx: %s, msg: %s}", conn, ctx, mmsg)
+	glog.Infof("onServerUnencryptedRawMessage - receive data: {peer: %s, ctx.state: %d, ctx.handshakeState.GetState(): %d, msg: %s}", conn,
+		ctx.state, ctx.handshakeState.GetState(), mmsg)
 
 	zmsg := mtproto.NewTLHandshakeData()
 	zmsg.SetClientConnId(int64(conn.GetConnID()))

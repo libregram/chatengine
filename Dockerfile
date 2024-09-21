@@ -1,10 +1,12 @@
-FROM golang:1.12.12 AS builder
+FROM golang:1.17.3 AS builder
+#was: golang:1.12.12
 
 ENV CGO_ENABLED 0
-ENV TARGET_DIR $GOPATH/src/github.com/nebula-chat/chatengine
+ENV TARGET_DIR $GOPATH/src/github.com/libregram/chatengine
 ENV GO111MODULE on
 
-RUN echo "GOPATH: $GOPATH"
+RUN echo "GOPATH: '$GOPATH'"
+RUN echo "TARGET_DIR: '$TARGET_DIR'"
 RUN mkdir -pv $TARGET_DIR
 RUN cd $TARGET_DIR
 COPY . $TARGET_DIR/
@@ -30,7 +32,7 @@ RUN cd ${TARGET_DIR}/access/frontend && go get && go build -ldflags='-s -w'
 
 FROM ineva/alpine:3.10.3
 
-ENV TARGET_DIR /go/src/github.com/nebula-chat/chatengine
+ENV TARGET_DIR /go/src/github.com/libregram/chatengine
 WORKDIR /app/
 
 COPY ./entrypont.sh /app/

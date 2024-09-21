@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -n "$CHATENGINE_HOST" ]; then
-  echo ">>> Plase set environment variable CHATENGINE_HOST to your own server IP. <<<"
+  echo ">>> Please set environment variable CHATENGINE_HOST to your own server IP. <<<"
   exit 1
 fi
 
@@ -41,4 +41,4 @@ starService access auth_key
 starService access session
 starService access frontend
 
-tail -f /dev/null
+tail -f /dev/null /tmp/*log

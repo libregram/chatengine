@@ -20,7 +20,7 @@ package document
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto"
 	"testing"
 )
 

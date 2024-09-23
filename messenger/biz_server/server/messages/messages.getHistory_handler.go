@@ -19,11 +19,11 @@ package messages
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/base"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/message"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/base"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/message"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/logger"
 	"golang.org/x/net/context"
 	"math"
 )

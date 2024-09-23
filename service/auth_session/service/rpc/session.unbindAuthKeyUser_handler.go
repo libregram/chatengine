@@ -19,10 +19,10 @@ package rpc
 
 import (
     "github.com/golang/glog"
-    "github.com/nebula-chat/chatengine/mtproto"
+    "github.com/libregram/chatengine/mtproto"
     "golang.org/x/net/context"
-    "github.com/nebula-chat/chatengine/pkg/grpc_util"
-    "github.com/nebula-chat/chatengine/pkg/logger"
+    "github.com/libregram/chatengine/pkg/grpc_util"
+    "github.com/libregram/chatengine/pkg/logger"
 )
 
 // session.unbindAuthKeyUser auth_key_id:long user_id:int = Bool;

@@ -20,8 +20,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/nebula-chat/chatengine/pkg/util"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/middleware/examples/zproto"
+	"github.com/libregram/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/grpc_util/middleware/examples/zproto"
 	"google.golang.org/grpc"
 	"io"
 	"math/rand"

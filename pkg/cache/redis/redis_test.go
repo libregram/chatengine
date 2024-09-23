@@ -19,7 +19,7 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
-	"github.com/nebula-chat/chatengine/pkg/cache"
+	"github.com/libregram/chatengine/pkg/cache"
 )
 
 func TestRedisCache(t *testing.T) {

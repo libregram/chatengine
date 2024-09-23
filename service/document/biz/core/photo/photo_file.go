@@ -18,9 +18,9 @@
 package photo
 
 import (
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/service/document/biz/dal/dataobject"
-	"github.com/nebula-chat/chatengine/service/nbfs/proto"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/service/document/biz/dal/dataobject"
+	"github.com/libregram/chatengine/service/nbfs/proto"
 )
 
 const (

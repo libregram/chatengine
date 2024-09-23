@@ -23,7 +23,7 @@ import (
 	"github.com/golang/glog"
 	"github.com/golang/protobuf/proto"
 	"github.com/grpc-ecosystem/go-grpc-middleware/util/metautils"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto"
 	"google.golang.org/grpc/metadata"
 )
 

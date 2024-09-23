@@ -19,7 +19,7 @@ package idgen
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/redis_client"
+	"github.com/libregram/chatengine/pkg/redis_client"
 	"fmt"
 	"github.com/gomodule/redigo/redis"
 )

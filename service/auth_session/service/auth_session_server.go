@@ -19,11 +19,11 @@ package service
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/mysql_client"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/mysql_client"
+	"github.com/libregram/chatengine/mtproto"
 	"google.golang.org/grpc"
-	"github.com/nebula-chat/chatengine/service/auth_session/service/rpc"
+	"github.com/libregram/chatengine/service/auth_session/service/rpc"
 )
 
 type authSessionServer struct {

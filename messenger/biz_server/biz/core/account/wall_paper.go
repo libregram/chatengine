@@ -18,7 +18,7 @@
 package account
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dataobject"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dataobject"
 )
 
 type wallPaperDataList []dataobject.WallPapersDO

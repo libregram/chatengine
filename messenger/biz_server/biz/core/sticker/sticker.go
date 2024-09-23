@@ -19,8 +19,8 @@ package sticker
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dataobject"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dataobject"
+	"github.com/libregram/chatengine/mtproto"
 )
 
 //public static final int TYPE_IMAGE = 0;

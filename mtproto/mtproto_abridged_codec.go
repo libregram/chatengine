@@ -22,7 +22,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/net2"
+	"github.com/libregram/chatengine/pkg/net2"
 	"io"
 )
 

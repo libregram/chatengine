@@ -21,10 +21,10 @@ import (
 	"flag"
 	"fmt"
 	"github.com/BurntSushi/toml"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/mysql_client"
-	"github.com/nebula-chat/chatengine/pkg/cache"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/mysql_client"
+	"github.com/libregram/chatengine/pkg/cache"
+	"github.com/libregram/chatengine/pkg/util"
 )
 
 var (

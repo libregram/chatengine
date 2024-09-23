@@ -20,10 +20,10 @@ package rpc
 import (
     "github.com/golang/glog"
     "golang.org/x/net/context"
-    "github.com/nebula-chat/chatengine/pkg/grpc_util"
-    "github.com/nebula-chat/chatengine/mtproto"
-    "github.com/nebula-chat/chatengine/pkg/logger"
-    "github.com/nebula-chat/chatengine/mtproto/rpc"
+    "github.com/libregram/chatengine/pkg/grpc_util"
+    "github.com/libregram/chatengine/mtproto"
+    "github.com/libregram/chatengine/pkg/logger"
+    "github.com/libregram/chatengine/mtproto/rpc"
 )
 
 // sync.syncChannelUpdates flags:# channel_id:int user_id:int auth_key_id:long server_id:flags.0?int updates:Updates = Bool;

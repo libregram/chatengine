@@ -18,8 +18,8 @@
 package mtproto
 
 import (
-	"github.com/nebula-chat/chatengine/pkg/crypto"
-	"github.com/nebula-chat/chatengine/pkg/sync2"
+	"github.com/libregram/chatengine/pkg/crypto"
+	"github.com/libregram/chatengine/pkg/sync2"
 	"time"
 )
 

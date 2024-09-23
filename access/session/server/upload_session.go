@@ -19,9 +19,9 @@ package server
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/mtproto/rpc"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto/rpc"
+	"github.com/libregram/chatengine/pkg/grpc_util"
 	"reflect"
 	"time"
 )

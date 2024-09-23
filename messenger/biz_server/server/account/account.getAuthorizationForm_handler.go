@@ -21,9 +21,9 @@ import (
     "github.com/golang/glog"
     "golang.org/x/net/context"
     "fmt"
-    "github.com/nebula-chat/chatengine/pkg/grpc_util"
-    "github.com/nebula-chat/chatengine/pkg/logger"
-    "github.com/nebula-chat/chatengine/mtproto"
+    "github.com/libregram/chatengine/pkg/grpc_util"
+    "github.com/libregram/chatengine/pkg/logger"
+    "github.com/libregram/chatengine/mtproto"
 )
 
 // account.getAuthorizationForm#b86ba8e1 bot_id:int scope:string public_key:string = account.AuthorizationForm;

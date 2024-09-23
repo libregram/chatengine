@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"github.com/golang/glog"
 	"github.com/gomodule/redigo/redis"
-	// "github.com/nebula-chat/chatengine/pkg/util"
-	"github.com/nebula-chat/chatengine/pkg/redis_client"
-	"github.com/nebula-chat/chatengine/service/status/proto"
+	// "github.com/libregram/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/redis_client"
+	"github.com/libregram/chatengine/service/status/proto"
 	"strings"
 	"time"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/util"
 )
 
 const (

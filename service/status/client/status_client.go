@@ -19,7 +19,7 @@ package status_client
 
 import (
 	"fmt"
-	"github.com/nebula-chat/chatengine/service/status/proto"
+	"github.com/libregram/chatengine/service/status/proto"
 )
 
 const (

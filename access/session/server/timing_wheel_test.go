@@ -19,7 +19,7 @@ package server
 
 import (
 	"fmt"
-	"github.com/nebula-chat/chatengine/pkg/sync2"
+	"github.com/libregram/chatengine/pkg/sync2"
 	"math/rand"
 	"testing"
 	"time"

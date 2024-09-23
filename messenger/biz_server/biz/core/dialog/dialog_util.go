@@ -17,7 +17,7 @@
 
 package dialog
 
-import "github.com/nebula-chat/chatengine/mtproto"
+import "github.com/libregram/chatengine/mtproto"
 
 type dialogItems struct {
 	MessageIdList       []int32

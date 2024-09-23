@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"github.com/golang/glog"
 	"github.com/jmoiron/sqlx"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/service/auth_session/biz/dal/dataobject"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/service/auth_session/biz/dal/dataobject"
 )
 
 type DevicesDAO struct {

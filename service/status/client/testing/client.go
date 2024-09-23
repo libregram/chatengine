@@ -18,9 +18,9 @@
 package main
 
 import (
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/service_discovery"
+	"github.com/libregram/chatengine/pkg/grpc_util/service_discovery"
 	"fmt"
-	"github.com/nebula-chat/chatengine/service/status/client"
+	"github.com/libregram/chatengine/service/status/client"
 	"math/rand"
 )
 

@@ -19,15 +19,15 @@ package account
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/util"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/logger"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/mtproto"
 	"golang.org/x/net/context"
-	"github.com/nebula-chat/chatengine/messenger/sync/sync_client"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/update"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/username"
-	base2 "github.com/nebula-chat/chatengine/messenger/biz_server/biz/base"
+	"github.com/libregram/chatengine/messenger/sync/sync_client"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/update"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/username"
+	base2 "github.com/libregram/chatengine/messenger/biz_server/biz/base"
 )
 
 // account.updateUsername#3e0bdd7c username:string = User;

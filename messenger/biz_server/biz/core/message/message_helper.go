@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"github.com/gogo/protobuf/proto"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/base"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dataobject"
-	"github.com/nebula-chat/chatengine/messenger/sync/sync_client"
-	"github.com/nebula-chat/chatengine/mtproto"
-	base2 "github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/base"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dataobject"
+	"github.com/libregram/chatengine/messenger/sync/sync_client"
+	"github.com/libregram/chatengine/mtproto"
+	base2 "github.com/libregram/chatengine/pkg/util"
 	"time"
 )
 

@@ -18,7 +18,7 @@
 package core
 
 import (
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto"
 )
 
 type PhotoCallback interface {

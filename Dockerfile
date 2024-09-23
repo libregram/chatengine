@@ -1,7 +1,7 @@
 FROM golang:1.12.12 AS builder
 
 ENV CGO_ENABLED 0
-ENV TARGET_DIR $GOPATH/src/github.com/nebula-chat/chatengine
+ENV TARGET_DIR $GOPATH/src/github.com/libregram/chatengine
 
 RUN echo $GOPATH
 RUN mkdir -p $TARGET_DIR
@@ -30,7 +30,7 @@ RUN cd ${TARGET_DIR}/access/frontend && go build -ldflags='-s -w'
 FROM alpine:3.10.3
 RUN apk add --no-cache ca-certificates tzdata && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-ENV TARGET_DIR /go/src/github.com/nebula-chat/chatengine
+ENV TARGET_DIR /go/src/github.com/libregram/chatengine
 WORKDIR /app/
 
 COPY ./docker/entrypont.sh /app/

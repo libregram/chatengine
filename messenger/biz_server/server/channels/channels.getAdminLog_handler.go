@@ -21,9 +21,9 @@ import (
     "fmt"
     "github.com/golang/glog"
     "golang.org/x/net/context"
-    "github.com/nebula-chat/chatengine/pkg/grpc_util"
-    "github.com/nebula-chat/chatengine/pkg/logger"
-    "github.com/nebula-chat/chatengine/mtproto"
+    "github.com/libregram/chatengine/pkg/grpc_util"
+    "github.com/libregram/chatengine/pkg/logger"
+    "github.com/libregram/chatengine/mtproto"
 )
 
 // channels.getAdminLog#33ddf480 flags:# channel:InputChannel q:string events_filter:flags.0?ChannelAdminLogEventsFilter admins:flags.1?Vector<InputUser> max_id:long min_id:long limit:int = channels.AdminLogResults;

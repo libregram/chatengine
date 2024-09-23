@@ -20,9 +20,9 @@ package main
 import (
 	"flag"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/crypto"
-	"github.com/nebula-chat/chatengine/pkg/net2"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/crypto"
+	"github.com/libregram/chatengine/pkg/net2"
+	"github.com/libregram/chatengine/mtproto"
 )
 
 type sessionClient struct {

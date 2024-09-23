@@ -18,7 +18,7 @@
 package redis_dao
 
 import (
-	"github.com/nebula-chat/chatengine/pkg/redis_client"
+	"github.com/libregram/chatengine/pkg/redis_client"
 	"testing"
 )
 

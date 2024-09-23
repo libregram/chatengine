@@ -36,7 +36,7 @@ import (
 	"strconv"
 	"time"
 	"github.com/gomodule/redigo/redis"
-	"github.com/nebula-chat/chatengine/pkg/cache"
+	"github.com/libregram/chatengine/pkg/cache"
 )
 
 var (

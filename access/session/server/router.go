@@ -18,7 +18,7 @@
 package server
 
 import (
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/grpc_util"
 	"reflect"
 	"github.com/golang/glog"
 )

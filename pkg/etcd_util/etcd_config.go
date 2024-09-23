@@ -18,7 +18,7 @@
 package etcd_util
 
 import (
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/util"
 )
 
 type EtcdConfig struct {

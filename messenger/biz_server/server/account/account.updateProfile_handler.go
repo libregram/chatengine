@@ -19,12 +19,12 @@ package account
 
 import (
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/logger"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/logger"
+	"github.com/libregram/chatengine/mtproto"
 	"golang.org/x/net/context"
-	"github.com/nebula-chat/chatengine/messenger/sync/sync_client"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/update"
+	"github.com/libregram/chatengine/messenger/sync/sync_client"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/update"
 )
 
 // account.updateProfile#78515775 flags:# first_name:flags.0?string last_name:flags.1?string about:flags.2?string = User;

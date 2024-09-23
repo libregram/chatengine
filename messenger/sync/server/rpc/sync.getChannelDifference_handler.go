@@ -19,11 +19,11 @@ package rpc
 
 import (
     "github.com/golang/glog"
-    "github.com/nebula-chat/chatengine/mtproto"
+    "github.com/libregram/chatengine/mtproto"
     "golang.org/x/net/context"
     "fmt"
-    "github.com/nebula-chat/chatengine/pkg/grpc_util"
-    "github.com/nebula-chat/chatengine/pkg/logger"
+    "github.com/libregram/chatengine/pkg/grpc_util"
+    "github.com/libregram/chatengine/pkg/logger"
 )
 
 // sync.getChannelDifference flags:# auth_key_id:long user_id:int force:flags.0?true channel:InputChannel filter:ChannelMessagesFilter pts:int limit:int = updates.ChannelDifference;

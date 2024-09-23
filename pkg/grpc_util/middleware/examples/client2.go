@@ -20,7 +20,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/middleware/examples/helloworld"
+	"github.com/libregram/chatengine/pkg/grpc_util/middleware/examples/helloworld"
 	"google.golang.org/grpc"
 	"math/rand"
 	"time"

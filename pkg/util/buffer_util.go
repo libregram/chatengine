@@ -19,7 +19,7 @@ package util
 
 import (
 	"encoding/hex"
-	"github.com/nebula-chat/chatengine/pkg/hack"
+	"github.com/libregram/chatengine/pkg/hack"
 )
 
 func WriteString(x *BufferOutput, s string) {

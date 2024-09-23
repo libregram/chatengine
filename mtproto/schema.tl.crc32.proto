@@ -25,7 +25,7 @@ package mtproto;
 option java_package = "chat.nebula.chatengine.mtproto";
 option java_outer_classname = "MTProto";
 option optimize_for = CODE_SIZE;
-// option go_package = "github.com/nebula-chat/chatengine/mtproto";
+// option go_package = "github.com/libregram/chatengine/mtproto";
 
 enum TLConstructor {
     CRC32_UNKNOWN = 0;

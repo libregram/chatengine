@@ -2,7 +2,7 @@
 
 PWD2=`pwd`
 echo $PWD2
-chatengine="$GOPATH/src/github.com/nebula-chat/chatengine"
+chatengine="$GOPATH/src/github.com/libregram/chatengine"
 
 echo "build document ..."
 cd ${chatengine}/service/document

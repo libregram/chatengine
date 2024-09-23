@@ -21,9 +21,9 @@ import (
     "fmt"
     "github.com/golang/glog"
     "golang.org/x/net/context"
-    "github.com/nebula-chat/chatengine/pkg/grpc_util"
-    "github.com/nebula-chat/chatengine/pkg/logger"
-    "github.com/nebula-chat/chatengine/mtproto"
+    "github.com/libregram/chatengine/pkg/grpc_util"
+    "github.com/libregram/chatengine/pkg/logger"
+    "github.com/libregram/chatengine/mtproto"
 )
 
 // channels.deleteHistory#af369d42 channel:InputChannel max_id:int = Bool;

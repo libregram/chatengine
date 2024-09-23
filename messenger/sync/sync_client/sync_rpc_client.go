@@ -20,9 +20,9 @@ package sync_client
 import (
 	"context"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/service_discovery"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/grpc_util"
+	"github.com/libregram/chatengine/pkg/grpc_util/service_discovery"
+	"github.com/libregram/chatengine/mtproto"
 	"time"
 )
 

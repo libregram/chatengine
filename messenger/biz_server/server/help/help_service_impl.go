@@ -18,10 +18,10 @@
 package help
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
 	"encoding/json"
-	"github.com/nebula-chat/chatengine/mtproto"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/mtproto"
+	"github.com/libregram/chatengine/pkg/util"
 	"io/ioutil"
 )
 

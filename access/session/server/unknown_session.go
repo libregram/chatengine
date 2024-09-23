@@ -18,8 +18,8 @@
 package server
 
 import (
-	"github.com/nebula-chat/chatengine/mtproto/rpc"
-	"github.com/nebula-chat/chatengine/mtproto"
+	"github.com/libregram/chatengine/mtproto/rpc"
+	"github.com/libregram/chatengine/mtproto"
 )
 
 type unknownSession struct {

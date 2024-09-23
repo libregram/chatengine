@@ -18,7 +18,7 @@
 package bots
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
 )
 
 type BotsServiceImpl struct {

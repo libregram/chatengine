@@ -21,8 +21,8 @@ import (
 	"flag"
 	"fmt"
 	"github.com/BurntSushi/toml"
-	"github.com/nebula-chat/chatengine/pkg/grpc_util/service_discovery"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/pkg/grpc_util/service_discovery"
+	"github.com/libregram/chatengine/pkg/util"
 )
 
 var (

@@ -18,10 +18,10 @@
 package auth
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/account"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/auth"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core/user"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/account"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/auth"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core/user"
 )
 
 type AuthServiceImpl struct {

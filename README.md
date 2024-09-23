@@ -26,7 +26,7 @@ Open source [mtproto](https://core.telegram.org/mtproto) server written in golan
 #### Docker run demo
 
 ```shell
-git clone https://github.com/nebula-chat/chatengine
+git clone https://github.com/libregram/chatengine
 cd chatengine
 # replace 192.168.1.100 to you own host IP.
 sed -i "" 's/CHATENGINE_HOST=127.0.0.1/CHATENGINE_HOST=192.168.1.100/g' docker-compose.yml # macOS
@@ -44,71 +44,71 @@ make
 
 - Get source code　
 ```
-mkdir -p $GOPATH/src/github.com/nebula-chat/
-cd $GOPATH/src/github.com/nebula-chat/
-git clone https://github.com/nebula-chat/chatengine.git
+mkdir -p $GOPATH/src/github.com/libregram/
+cd $GOPATH/src/github.com/libregram/
+git clone https://github.com/libregram/chatengine.git
 
 ```
 
 - Build
     ```
     build frontend
-        cd $GOPATH/src/github.com/nebula-chat/chatengine/access/frontend
+        cd $GOPATH/src/github.com/libregram/chatengine/access/frontend
         go build
     
     build auth_key
-        cd $GOPATH/src/github.com/nebula-chat/chatengine/access/auth_key
+        cd $GOPATH/src/github.com/libregram/chatengine/access/auth_key
         go build
 
     build auth_session
-        cd $GOPATH/src/github.com/nebula-chat/chatengine/service/auth_session
+        cd $GOPATH/src/github.com/libregram/chatengine/service/auth_session
         go build
         
     build sync
-        cd $GOPATH/src/github.com/nebula-chat/chatengine/messenger/sync
+        cd $GOPATH/src/github.com/libregram/chatengine/messenger/sync
         go build
     
     build upload
-        cd $GOPATH/src/github.com/nebula-chat/chatengine/messenger/upload
+        cd $GOPATH/src/github.com/libregram/chatengine/messenger/upload
         go build
     
     build document
-        cd $GOPATH/src/github.com/nebula-chat/chatengine/service/document
+        cd $GOPATH/src/github.com/libregram/chatengine/service/document
         go build
 
     build biz_server
-        cd $GOPATH/src/github.com/nebula-chat/chatengine/messenger/biz_server
+        cd $GOPATH/src/github.com/libregram/chatengine/messenger/biz_server
         go build
         
     build session
-        cd $GOPATH/src/github.com/nebula-chat/chatengine/access/session
+        cd $GOPATH/src/github.com/libregram/chatengine/access/session
         go build
     ```
 
 - Run
     ```
-    cd $GOPATH/src/github.com/nebula-chat/chatengine/service/auth_session
+    cd $GOPATH/src/github.com/libregram/chatengine/service/auth_session
     ./auth_session
     
-    cd $GOPATH/src/github.com/nebula-chat/chatengine/service/document
+    cd $GOPATH/src/github.com/libregram/chatengine/service/document
     ./document
 
-    cd $GOPATH/src/github.com/nebula-chat/chatengine/messenger/sync
+    cd $GOPATH/src/github.com/libregram/chatengine/messenger/sync
     ./sync
     
-    cd $GOPATH/src/github.com/nebula-chat/chatengine/messenger/upload
+    cd $GOPATH/src/github.com/libregram/chatengine/messenger/upload
     ./upload
 
-    cd $GOPATH/src/github.com/nebula-chat/chatengine/messenger/biz_server
+    cd $GOPATH/src/github.com/libregram/chatengine/messenger/biz_server
     ./biz_server
 
-    cd $GOPATH/src/github.com/nebula-chat/chatengine/access/auth_key
+    cd $GOPATH/src/github.com/libregram/chatengine/access/auth_key
     ./auth_key
 
-    cd $GOPATH/src/github.com/nebula-chat/chatengine/access/session
+    cd $GOPATH/src/github.com/libregram/chatengine/access/session
     ./session
     
-    cd $GOPATH/src/github.com/nebula-chat/chatengine/access/frontend
+    cd $GOPATH/src/github.com/libregram/chatengine/access/frontend
     ./frontend
     ```
 
@@ -123,13 +123,13 @@ git clone https://github.com/nebula-chat/chatengine.git
 ### Compatible clients
 **Important**: default signIn and signOut verify code is **12345**
 
-[Android client for NebulaChat](https://github.com/nebula-chat/clients/tree/master/Telegram-Android)
+[Android client for NebulaChat](https://github.com/libregram/clients/tree/master/Telegram-Android)
 
-[FOSS client for NebulaChat](https://github.com/nebula-chat/clients/tree/master/Telegram-FOSS)
+[FOSS client for NebulaChat](https://github.com/libregram/clients/tree/master/Telegram-FOSS)
 
-[iOS client for NebulaChat](https://github.com/nebula-chat/clients/tree/master/Telegram-iOS)
+[iOS client for NebulaChat](https://github.com/libregram/clients/tree/master/Telegram-iOS)
 
-[tdesktop for NebulaChat](https://github.com/nebula-chat/clients/tree/master/tdesktop)
+[tdesktop for NebulaChat](https://github.com/libregram/clients/tree/master/tdesktop)
 
 
 ### TODO

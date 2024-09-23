@@ -13,11 +13,11 @@ docker run --name mysql-docker -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d
 echo "run redis-docker..."
 docker run --name redis-docker -p 6379:6379 -d redis
 echo "clone chatengine..."
-mkdir ${GOPATH}/src/github.com/nebula-chat/
-cd ${GOPATH}/src/github.com/nebula-chat/
-git clone https://github.com/nebula-chat/chatengine.git
+mkdir ${GOPATH}/src/github.com/libregram/
+cd ${GOPATH}/src/github.com/libregram/
+git clone https://github.com/libregram/chatengine.git
 
 echo "create db schema ..."
 docker exec -it mysql-docker sh -c 'exec mysql -u root -p -e"CREATE DATABASE chatengine;"'
-docker exec -i mysql-docker mysql --user=root chatengine < ${GOPATH}/src/github.com/nebula-chat/chatengine/scripts/chatengine.sql
+docker exec -i mysql-docker mysql --user=root chatengine < ${GOPATH}/src/github.com/libregram/chatengine/scripts/chatengine.sql
 echo "OK"

@@ -18,11 +18,11 @@
 package message
 
 import (
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/core"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dao"
-	"github.com/nebula-chat/chatengine/messenger/biz_server/biz/dal/dao/mysql_dao"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/core"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dao"
+	"github.com/libregram/chatengine/messenger/biz_server/biz/dal/dao/mysql_dao"
 	"github.com/golang/glog"
-	"github.com/nebula-chat/chatengine/pkg/redis_client"
+	"github.com/libregram/chatengine/pkg/redis_client"
 )
 
 type messagesDAO struct {

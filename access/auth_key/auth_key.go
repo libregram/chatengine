@@ -19,8 +19,8 @@ package main
 
 import (
 	"flag"
-	"github.com/nebula-chat/chatengine/access/auth_key/server"
-	"github.com/nebula-chat/chatengine/pkg/util"
+	"github.com/libregram/chatengine/access/auth_key/server"
+	"github.com/libregram/chatengine/pkg/util"
 )
 
 func main() {

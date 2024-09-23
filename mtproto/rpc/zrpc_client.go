@@ -64,41 +64,51 @@ type ZRpcClient struct {
 // All calls use "brpc"
 func NewZRpcClient(protoName string, conf *ZRpcClientConfig, cb ZPpcClientCallBack) *ZRpcClient {
 	glog.Info("NewZRpcClient enter")
+	var err error
 	clients := map[string][]string{}
 
 	c := &ZRpcClient{
 		callback: cb,
 	}
 
+	glog.Info("NewZRpcClient calling NewTcpClientGroupManager")
 	// 这里传进去一个空值，应该后面在watcher中addclient中添加到cgm中
 	// A null value is passed in here, which should be added to cgm in addclient in watcher later
 	c.clients = net2.NewTcpClientGroupManager(protoName, clients, c)
+	glog.Info("NewZRpcClient calling NewTcpClientGroupManager done")
 
+	glog.Info("NewZRpcClient for1 {")
 	// Check name
 	for i := 0; i < len(conf.Clients); i++ {
-		glog.Info("i=", i, "etcd=", conf.Clients[i].EtcdAddrs, " name=", conf.Clients[i].Name, " balancer ", conf.Clients[i].Balancer)
+		glog.Info("i=", i, " etcd=", conf.Clients[i].EtcdAddrs, " name=", conf.Clients[i].Name, " balancer ", conf.Clients[i].Balancer)
 		// service discovery
 		etcdConfg := clientv3.Config{
-			Endpoints: conf.Clients[i].EtcdAddrs,
+			Endpoints:   conf.Clients[i].EtcdAddrs,
+			DialTimeout: 1 * time.Second,
 		}
 		watcher := &Watcher{
 			name: conf.Clients[i].Name,
 		}
+		glog.Info("NewZRpcClient calling NewClientWatcher")
 		// 这里的意思是本地的变量watcher里的 *watcher2.ClientWatcher类型watcher，
 		// Here it means the watcher of type *watcher2.ClientWatcher in the local variable watcher.
-		watcher.watcher, _ = watcher2.NewClientWatcher("/nebulaim", conf.Clients[i].Name, etcdConfg, c.clients)
+		watcher.watcher, err = watcher2.NewClientWatcher("/nebulaim", conf.Clients[i].Name, etcdConfg, c.clients)
+		glog.Info("NewZRpcClient calling NewClientWatcher done")
+
 		// 之前这里的值在后面用的时候发现是空值
 		// The value here was found to be null when it was used later.
 		k := 0
 		MAX_ATTEMPTS := 10
 		for k <= MAX_ATTEMPTS && watcher.watcher == nil {
-			glog.Info("There was a problem, error connecting to etcd, attempt ", k, " of ", MAX_ATTEMPTS)
+			glog.Info("There was a problem, error connecting to etcd, attempt ", k, " of ", MAX_ATTEMPTS, " error: ", err)
 			time.Sleep(1 * time.Second)
-			watcher.watcher, _ = watcher2.NewClientWatcher("/nebulaim", conf.Clients[i].Name, etcdConfg, c.clients)
+			glog.Info("NewZRpcClient calling NewClientWatcher")
+			watcher.watcher, err = watcher2.NewClientWatcher("/nebulaim", conf.Clients[i].Name, etcdConfg, c.clients)
+			glog.Info("NewZRpcClient calling NewClientWatcher done")
 			k = k + 1
 		}
 		if k >= MAX_ATTEMPTS {
-			glog.Error("etcd error in NewClientWatcher. Tried ", MAX_ATTEMPTS, " times but still failed. Try restarting once")
+			glog.Error("etcd error in NewClientWatcher. Tried ", MAX_ATTEMPTS, " times but still failed. Try restarting once. Error: ", err)
 		}
 
 		if conf.Clients[i].Balancer == "ketama" {
@@ -108,15 +118,22 @@ func NewZRpcClient(protoName string, conf *ZRpcClientConfig, cb ZPpcClientCallBa
 		}
 		c.watchers = append(c.watchers, watcher)
 	}
+	glog.Info("NewZRpcClient for1 }")
 
+	glog.Info("NewZRpcClient leave")
 	return c
 }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////
 func (c *ZRpcClient) Serve() {
+	glog.Info("ZRpcClient::Serve enter")
+
 	for _, w := range c.watchers {
+		glog.Info("ZRpcClient::Serve w=", w)
 		if w.ketama != nil {
+			glog.Info("ZRpcClient::Serve ketama, spawning go WatchClients")
 			go w.watcher.WatchClients(func(etype, addr string) {
+				glog.Info("ZRpcClient::Serve ketama, goroutine WatchClients cb: etype=", etype, " addr=", addr)
 				switch etype {
 				case "add":
 					w.ketama.Add(addr)
@@ -125,9 +142,12 @@ func (c *ZRpcClient) Serve() {
 				}
 			})
 		} else {
+			glog.Info("ZRpcClient::Serve non-ketama, spawning go WatchClients, cb=nil")
 			go w.watcher.WatchClients(nil)
 		}
 	}
+
+	glog.Info("ZRpcClient::Serve leave")
 }
 
 func (c *ZRpcClient) Stop() {

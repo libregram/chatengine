@@ -1,7 +1,7 @@
-# biz_server.toml
+# toml
 
 ver = "0.0.1"
-#logPath = "/tmp/frontend.log"
+logPath = "/tmp/frontend.log"
 serverId = 1
 
 [server80.server]

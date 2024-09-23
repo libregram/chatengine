@@ -21,6 +21,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"time"
 
 	"github.com/golang/glog"
 	"github.com/libregram/chatengine/pkg/net2"
@@ -74,11 +75,14 @@ func (m *ClientWatcher) WatchClients(cb func(etype, addr string)) {
 	rootPath := fmt.Sprintf("%s/%s", m.registryDir, m.serviceName)
 
 	glog.Info("calling m.etcCli.Get: m.etcCli ", m.etcCli, " context.Background() ", context.Background(), " rootPath ", rootPath, " WithPrefix")
-	resp, err := m.etcCli.Get(context.Background(), rootPath, clientv3.WithPrefix())
+	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	resp, err := m.etcCli.Get(ctx, rootPath, clientv3.WithPrefix())
 	glog.Info("called m.etcCli.Get: resp ", resp, " err ", err)
+	cancel()
 	if err != nil {
 		glog.Info("Error", err)
 		glog.Error(err)
+		return
 	}
 	glog.Info("for1 {")
 	for _, kv := range resp.Kvs {
